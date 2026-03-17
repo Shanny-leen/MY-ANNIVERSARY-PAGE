@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>My Love ❤️</title>
-
     <style>
         body {
             margin: 0;
@@ -75,7 +74,7 @@
 <h1>Happy Anniversary My Love ❤️</h1>
 
 <div class="photo">
-    <img src="https://imgur.com/MjGpnUv" alt="Us ❤️">
+    <img src="https://"https://imgur.com/MjGpnUv" alt="Us ❤️">
 </div>
 
 <div id="letter"></div>
@@ -100,16 +99,14 @@
 <button onclick="alert('I knew it 😌❤️')">Yes 💖</button>
 <button id="no">No 😅</button>
 
-<!-- MUSIC TRANSITION -->
+<!-- MUSIC -->
 <iframe id="song1" width="0" height="0"
 src="https://www.youtube.com/embed/4Z9fH5iU4lQ?autoplay=1&mute=1&loop=1&playlist=4Z9fH5iU4lQ"
-frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
-</iframe>
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <iframe id="song2" width="0" height="0"
 src=""
-frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
-</iframe>
+frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <script>
     // LETTER
@@ -127,7 +124,7 @@ frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
         document.getElementById("letter").innerHTML = "";
         i = 0;
         typeWriter();
-        startMusicTransition(); // 🎶 trigger music
+        startMusicTransition(); // starts music transition
     }
 
     function typeWriter() {
@@ -141,11 +138,11 @@ frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
     // MUSIC TRANSITION
     function startMusicTransition() {
         setTimeout(() => {
-            document.getElementById("song1").src = "";
+            document.getElementById("song1").src = ""; // stop first song
 
             document.getElementById("song2").src =
-            "https://www.youtube.com/embed/5hU6nR0bRrQ?autoplay=1&loop=1&playlist=5hU6nR0bRrQ";
-        }, 12000);
+            "https://www.youtube.com/embed/5hU6nR0bRrQ?autoplay=1&loop=1&playlist=5hU6nR0bRrQ"; // Drake
+        }, 12000); // after 12 seconds
     }
 
     // GIFT
@@ -155,13 +152,13 @@ frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
 
     // REASONS
     const reasonsList = [
-        "You make me feel safe and loved 🥺",
+        "You make me feel safe 🥺",
         "Your smile fixes everything 😭❤️",
         "You care about me so deeply 💖",
         "You’re my peace 😌",
         "You make life feel special ✨",
-        "You understand me and tolerate my madness🥺",
-        "You’re stuck with me forever bishhh 😏❤️"
+        "You understand me 🥺",
+        "You’re stuck with me forever 😏❤️"
     ];
 
     let reasonIndex = 0;
