@@ -12,14 +12,38 @@
             overflow-x: hidden;
         }
         h1 { margin-top: 30px; }
-        #letter { width: 80%; margin:auto; font-size:20px; min-height:120px; margin-top:20px; }
-        button { padding:10px 20px; font-size:18px; border:none; border-radius:10px; cursor:pointer; margin:10px;}
-        #giftBtn,#reasonBtn { background:white; color:#ff4b5c; }
-        #giftMessage,#reasons { font-size:22px; margin-top:20px; }
-        .photo img { width:200px; height:200px; border-radius:50%; border:5px solid white; box-shadow:0 0 20px white;}
-        #no { position:absolute; background:#ff4b5c; color:white; }
-        .heart { position:absolute; animation:float 6s linear infinite; }
-        @keyframes float { from {transform:translateY(100vh);opacity:1;} to{transform:translateY(-10vh);opacity:0;} }
+        #letter {
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            min-height: 120px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #giftBtn, #reasonBtn { background: white; color: #ff4b5c; }
+        #giftMessage, #reasons { font-size: 22px; margin-top: 20px; }
+        .photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 20px white;
+        }
+        #no { position: absolute; background: #ff4b5c; color: white; }
+        .heart { position: absolute; animation: float 6s linear infinite; }
+        @keyframes float {
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+        /* Spacing for music embed */
+        #musicContainer { margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -27,7 +51,7 @@
 <h1>Happy Anniversary My Love ❤️</h1>
 
 <div class="photo">
-    <!-- Replace with your Imgur direct image link -->
+    <!-- Replace with your Imgur direct link -->
     <img src="us.jpeg" alt="Us ❤️">
 </div>
 
@@ -50,72 +74,70 @@
 <button onclick="alert('I knew it 😌❤️')">Yes 💖</button>
 <button id="no">No 😅</button>
 
-<!-- Slow relaxed romantic song, moved lower -->
-<div style="margin-top: 200px;"> <!-- Adjust margin-top to move music lower -->
-  <audio id="music" controls autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+<!-- MUSIC EMBED RIGHT BELOW YES/NO -->
+<div id="musicContainer">
+    <!-- SoundCloud Embed for "All Me" by Kehlani -->
+    <iframe width="100%" height="166" scrolling="no" frameborder="no"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/kehlanimusic/all-me-feat-keyshia-cole&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false">
+    </iframe>
 </div>
 
 <script>
-const text = "Happy Anniversary my love 😭❤️\n\nFrom the moment you came into my life... everything changed 🥺\nYou are my safe place, my happiness, my peace 💖\nEvery moment with you means everything to me...\nEven on my worst days, you're still my favorite person 😭❤️\nAnd if I had to choose again... I would still choose you. Every time ❤️\nListen closely… this is how you make me feel 🎶💘";
-let i = 0;
+    const text = "Happy Anniversary my love 😭❤️\n\nFrom the moment you came into my life... everything changed 🥺\nYou are my safe place, my happiness, my peace 💖\nEvery moment with you means everything to me...\nEven on my worst days, you're still my favorite person 😭❤️\nAnd if I had to choose again... I would still choose you. Every time ❤️\nListen closely… this is how you make me feel 🎶💘";
+    let i = 0;
 
-function startLetter(){
-    document.getElementById("letter").innerHTML = "";
-    i=0;
-    typeWriter();
-}
-
-function typeWriter(){
-    if(i<text.length){
-        document.getElementById("letter").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter,40);
+    function startLetter(){
+        document.getElementById("letter").innerHTML = "";
+        i = 0;
+        typeWriter();
     }
-}
 
-function showGift(){
-    document.getElementById("giftMessage").style.display="block";
-}
-
-const reasonsList=["You make me feel safe 🥺","Your smile fixes everything 😭❤️","You care about me so deeply 💖","You’re my peace 😌","You make life feel special ✨","You understand me 🥺","You’re stuck with me forever 😏❤️"];
-
-function showReason(){
-    document.getElementById("reasons").innerHTML = "💖 " + reasonsList.join("<br>💖 ");
-}
-
-// Moving No button
-const noBtn=document.getElementById("no");
-noBtn.addEventListener("mouseover",function(){
-    const x=Math.random()*window.innerWidth;
-    const y=Math.random()*window.innerHeight;
-    noBtn.style.left=x+"px";
-    noBtn.style.top=y+"px";
-});
-
-// Floating hearts
-function createHeart(){
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*window.innerWidth+"px";
-    heart.style.fontSize=(Math.random()*20+10)+"px";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),6000);
-}
-setInterval(createHeart,300);
-
-// Music: make it continue after pause
-const music = document.getElementById("music");
-music.addEventListener("pause", function() {
-    setTimeout(() => {
-        if (music.paused) {
-            music.play();
+    function typeWriter(){
+        if(i < text.length){
+            document.getElementById("letter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 40);
         }
-    }, 1000); // resumes 1 second after pause
-});
+    }
+
+    function showGift(){
+        document.getElementById("giftMessage").style.display = "block";
+    }
+
+    const reasonsList = [
+        "You make me feel safe,loved and cherished🥺",
+        "Your smile fixes everything om my lawwd😭❤️",
+        "You care about me so deeply and I appreciate that💖",
+        "You’re my peace and comfort😌",
+        "You make life feel special, like dayuumm✨",
+        "You understand me and tolerate me🥺",
+        "You’re stuck with me forever bishhh😏❤️"
+    ];
+
+    function showReason(){
+        document.getElementById("reasons").innerHTML = "💖 " + reasonsList.join("<br>💖 ");
+    }
+
+    // Moving No button
+    const noBtn = document.getElementById("no");
+    noBtn.addEventListener("mouseover", function(){
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // Floating hearts
+    function createHeart(){
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
 </script>
 
 </body>
