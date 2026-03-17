@@ -50,12 +50,13 @@
 <button onclick="alert('I knew it 😌❤️')">Yes 💖</button>
 <button id="no">No 😅</button>
 
-<!-- Simple music player -->
-<audio id="music" controls autoplay loop>
-  <!-- Replace this src with your favorite MP3 later -->
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<!-- Slow relaxed romantic song, moved lower -->
+<div style="margin-top: 200px;"> <!-- Adjust margin-top to move music lower -->
+  <audio id="music" controls autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
 
 <script>
 const text = "Happy Anniversary my love 😭❤️\n\nFrom the moment you came into my life... everything changed 🥺\nYou are my safe place, my happiness, my peace 💖\nEvery moment with you means everything to me...\nEven on my worst days, you're still my favorite person 😭❤️\nAnd if I had to choose again... I would still choose you. Every time ❤️\nListen closely… this is how you make me feel 🎶💘";
@@ -105,6 +106,16 @@ function createHeart(){
     setTimeout(()=>heart.remove(),6000);
 }
 setInterval(createHeart,300);
+
+// Music: make it continue after pause
+const music = document.getElementById("music");
+music.addEventListener("pause", function() {
+    setTimeout(() => {
+        if (music.paused) {
+            music.play();
+        }
+    }, 1000); // resumes 1 second after pause
+});
 </script>
 
 </body>
