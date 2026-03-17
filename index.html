@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Love ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff6a88, #ff99ac);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        #letter {
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+            margin-top: 20px;
+            min-height: 120px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #giftBtn, #reasonBtn {
+            background: white;
+            color: #ff4b5c;
+        }
+
+        #giftMessage, #reasons {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        .photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 20px white;
+        }
+
+        #no {
+            position: absolute;
+            background: #ff4b5c;
+            color: white;
+        }
+
+        .heart {
+            position: absolute;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Happy Anniversary My Love ❤️</h1>
+
+<div class="photo">
+    <img src="https://imgur.com/MjGpnUv" alt="Us ❤️">
+</div>
+
+<div id="letter"></div>
+
+<button onclick="startLetter()">Read this… 💌</button>
+
+<br>
+
+<button id="giftBtn" onclick="showGift()">Open Your Gift 🎁</button>
+
+<div id="giftMessage" style="display:none;">
+    You are my favorite person, my peace, my happiness... my everything ❤️<br><br>
+    And my gift to you… is me. Forever 😌💖
+</div>
+
+<h2>Wanna know why I love you? 😏💖</h2>
+<button id="reasonBtn" onclick="showReason()">Tell me 🥺</button>
+
+<p id="reasons"></p>
+
+<h2>Do you love me? 😏</h2>
+<button onclick="alert('I knew it 😌❤️')">Yes 💖</button>
+<button id="no">No 😅</button>
+
+<!-- MUSIC TRANSITION -->
+<iframe id="song1" width="0" height="0"
+src="https://www.youtube.com/embed/4Z9fH5iU4lQ?autoplay=1&mute=1&loop=1&playlist=4Z9fH5iU4lQ"
+frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
+</iframe>
+
+<iframe id="song2" width="0" height="0"
+src=""
+frameborder="0" allow="autoplay";encrypted-media" allowfullscreen>
+</iframe>
+
+<script>
+    // LETTER
+    const text = "Happy Anniversary my love 😭❤️\n\n" +
+    "From the moment you came into my life... everything changed 🥺\n\n" +
+    "You are my safe place, my happiness, my peace 💖\n\n" +
+    "Every moment with you means everything to me...\n\n" +
+    "Even on my worst days, you're still my favorite person 😭❤️\n\n" +
+    "And if I had to choose again... I would still choose you. Every time ❤️\n\n" +
+    "Listen closely… this is how you make me feel 🎶💘";
+
+    let i = 0;
+
+    function startLetter() {
+        document.getElementById("letter").innerHTML = "";
+        i = 0;
+        typeWriter();
+        startMusicTransition(); // 🎶 trigger music
+    }
+
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById("letter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 40);
+        }
+    }
+
+    // MUSIC TRANSITION
+    function startMusicTransition() {
+        setTimeout(() => {
+            document.getElementById("song1").src = "";
+
+            document.getElementById("song2").src =
+            "https://www.youtube.com/embed/5hU6nR0bRrQ?autoplay=1&loop=1&playlist=5hU6nR0bRrQ";
+        }, 12000);
+    }
+
+    // GIFT
+    function showGift() {
+        document.getElementById("giftMessage").style.display = "block";
+    }
+
+    // REASONS
+    const reasonsList = [
+        "You make me feel safe and loved 🥺",
+        "Your smile fixes everything 😭❤️",
+        "You care about me so deeply 💖",
+        "You’re my peace 😌",
+        "You make life feel special ✨",
+        "You understand me and tolerate my madness🥺",
+        "You’re stuck with me forever bishhh 😏❤️"
+    ];
+
+    let reasonIndex = 0;
+
+    function showReason() {
+        if (reasonIndex < reasonsList.length) {
+            document.getElementById("reasons").innerHTML = reasonsList[reasonIndex];
+            reasonIndex++;
+        } else {
+            document.getElementById("reasons").innerHTML =
+            "I could go on forever because I love you that much 😘💖";
+        }
+    }
+
+    // MOVING NO BUTTON
+    const noBtn = document.getElementById("no");
+
+    noBtn.addEventListener("mouseover", function () {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+
+    // FLOATING HEARTS
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
